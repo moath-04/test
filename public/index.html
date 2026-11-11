@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fresh Market</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <nav><a href="#products">Products</a><a href="#order">Order</a><a href="admin.html">Admin</a></nav>
+  <h1>Fresh Market</h1>
+  <p>Fresh fruits and vegetables delivered to your door</p>
+  <a class="btn btn-primary" href="#products">Shop now</a>
+</header>
+
+<main class="wrap">
+  <section class="split">
+    <div><h2>Picked this morning</h2><p>We source directly from local farms every day.</p>
+      <div class="actions"><a class="btn btn-primary" href="#order">Order</a><a class="btn btn-secondary" href="#products">Browse</a></div></div>
+    <div class="img" style="background-image:url(images/pears2.jpg)">🍐</div>
+  </section>
+  <section class="split">
+    <div class="img" style="background-image:url(images/watermelon.jpg)">🍉</div>
+    <div><h2>Summer favorites</h2><p>Juicy watermelons and seasonal picks.</p>
+      <div class="actions"><a class="btn btn-primary" href="#order">Order</a><a class="btn btn-secondary" href="#products">Browse</a></div></div>
+  </section>
+
+  <h2 class="section-title" id="products">Our products</h2>
+  <div class="products" id="product-grid"></div>
+
+  <h2 class="section-title">Why us</h2>
+  <div class="features">
+    <div>🌐<h4>Local sourcing</h4><p>Everything comes from nearby farms.</p></div>
+    <div>👤<h4>Personal service</h4><p>Real people pick your order.</p></div>
+    <div>🔒<h4>Secure orders</h4><p>Your details stay private.</p></div>
+    <div>📅<h4>Next-day delivery</h4><p>Order today, receive tomorrow.</p></div>
+  </div>
+
+  <form class="order" id="order">
+    <h2>Place an order</h2>
+    <input name="name" placeholder="Your name" required>
+    <input name="email" type="email" placeholder="Email" required>
+    <select name="productId" id="product-select"></select>
+    <input name="quantity" type="number" min="1" max="20" value="1">
+    <button class="btn btn-primary" type="submit">Submit order</button>
+    <p class="msg" id="msg"></p>
+  </form>
+
+  <footer>
+    <strong>Fresh Market</strong>
+    <div class="cols"><div><b>Shop</b><a href="#products">Products</a></div><div><b>Help</b><a href="#order">Order</a></div><div><b>Admin</b><a href="admin.html">Orders</a></div></div>
+  </footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

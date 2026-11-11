@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orders Admin</title><link rel="stylesheet" href="style.css"></head>
+<body><main class="wrap" style="padding-top:40px">
+<a href="/">← Back to shop</a>
+<h1 style="margin-top:16px">Orders</h1>
+<p id="summary"></p>
+<table><thead><tr><th>Name</th><th>Email</th><th>Product</th><th>Qty</th><th>Total</th><th>Date</th></tr></thead><tbody id="rows"></tbody></table>
+</main>
+<script>
+// textContent بدل innerHTML لحماية الصفحة من XSS
+fetch("/api/orders").then(r => r.json()).then(orders => {
+  const sum = orders.reduce((s, o) => s + o.total, 0);
+  document.getElementById("summary").textContent = `${orders.length} orders · $${sum.toFixed(2)} total`;
+  const tbody = document.getElementById("rows");
+  orders.slice().reverse().forEach(o => {
+    const tr = document.createElement("tr");
+    [o.name, o.email, o.product, o.quantity, "$" + o.total, new Date(o.createdAt).toLocaleString()]
+      .forEach(v => { const td = document.createElement("td"); td.textContent = v; tr.appendChild(td); });
+    tbody.appendChild(tr);
+  });
+});
+</script></body></html>

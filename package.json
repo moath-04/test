@@ -1,0 +1,8 @@
+{
+  "name": "fruit-shop",
+  "version": "1.0.0",
+  "description": "Simple fruit shop demo built from a Figma design",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "express": "^4.19.2" }
+}
